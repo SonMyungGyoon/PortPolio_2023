@@ -1,0 +1,39 @@
+STS3 3.9.17
+JavaSE-11
+톰캣 - 9.0.46
+
+MySQL
+ username root
+ pw root
+ localhost:3306
+
+database 이름 stray_kity
+-- MySQL에 stray_kity DATABASE 생성, 사용
+CREATE DATABASE stray_kity default CHARACTER SET utf8mb4;
+use stray_kity;
+
+drop table if exists members;
+CREATE TABLE MEMBERS (
+	U_NO INT AUTO_INCREMENT primary key,
+    U_ID varchar(20) unique not null,
+    U_PW varchar(20) not null,
+    U_NAME varchar(20),
+    U_EMAIL varchar(50),
+    U_POINT INT default 0,
+    U_ADDRNUM varchar(255),
+    U_ADDRSTREET varchar(255),
+    U_ADDRDETAIL varchar(255),
+    U_PHONE varchar(15)
+);
+drop table if exists ITEM;
+CREATE TABLE ITEM(
+	ID LONG auto_increment PRIMARY KEY,
+	NAME VARCHAR(50),
+	PRICE INT,
+	STOCK INT,
+	ISSOLDOUT BOOLEAN,
+	COUNT INT,
+	TEXT VARCHAR(1000),
+	FILENAME VARCHAR(100),
+	FILEPATH VARCHAR(255)
+);

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stray.spring.mapper.AuthMapper">
+	<select id="checkId" resultType = "int">
+		select count(*) from members where U_ID = #{u_id}
+	</select>
+ 	<insert id="createAccount">
+		insert into members (U_ID,U_PW,U_NAME, U_EMAIL, U_ADDRNUM, U_ADDRSTREET, U_ADDRDETAIL, U_PHONE) values (#{u_id},#{u_pw},#{u_name}, #{u_email}, #{u_addrnum}, #{u_addrstreet},#{u_addrdetail}, #{u_phone})
+	</insert>
+	<select id="signIn" resultType = "int">
+		select count(*) from members where U_ID = #{id} and U_PW = #{pw}
+	</select>
+	<select id="getUser" resultType = "com.stray.spring.dto.UserVO">
+		select * from members where U_ID = #{u_id}
+	</select>
+	
+</mapper>
